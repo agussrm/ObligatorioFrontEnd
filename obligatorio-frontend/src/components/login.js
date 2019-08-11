@@ -1,11 +1,11 @@
 import React from "react";
 import {
+    // eslint-disable-next-line no-unused-vars
     BrowserRouter as Router,
     Redirect
   } from "react-router-dom";
 import {connect}    from 'react-redux';
 import {LoginUser} from './../Services/Services.js'
-import { Modal, Button } from 'react-materialize';
 
 class Login extends React.Component {
             constructor(props){
@@ -25,7 +25,11 @@ class Login extends React.Component {
                 event.preventDefault();
                 const{password,  email} = this.state;
                 LoginUser({ email, password})
-                    .then(result => {this.props.dispatch(Login(result.data))
+                    .then(result => {this.props.dispatch(Login(result.data)); 
+                     sessionStorage.setItem("_id", result._id);
+                     this.props.history.push("/Equipo");
+                     
+        
                     }).catch(err => {alert ('ERROR')
                      console.log(err)})
             }
@@ -33,10 +37,11 @@ class Login extends React.Component {
             render(){
         return( 
             this.props.user ? 
-            <Redirect to='/' />
+            <Redirect to='/Campeonato' />
             :
-            <div>
-                <form onSubmit={this.onSubmit}>
+            <div className="form">
+                <h2>Sign in</h2>
+                <form onSubmit={this.onSubmit} className="formcon">
                 <div>
                     <label htmlFor="email">Email</label>
                     <input required  type="email" id="email" name="email"onChange={this.handleChange} value={this.state.email}/>  
@@ -47,7 +52,9 @@ class Login extends React.Component {
                 </div>
     
                   
-                <Button waves="light" style={{marginRight: '5px'}}>Confirmar</Button>
+                <button className="button">
+                    Entrar
+                </button>
                 </form>
                 
             </div>

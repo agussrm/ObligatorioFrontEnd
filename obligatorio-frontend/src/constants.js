@@ -2,4 +2,5 @@ export const ACTIONS = {
     CREATE_USER: 'CREATE_USER',
     LOGOUT: 'LOGOUT',
     LOGIN: 'LOGIN',
+    CREATE_TEAM: 'CREATE_TEAM'
 }

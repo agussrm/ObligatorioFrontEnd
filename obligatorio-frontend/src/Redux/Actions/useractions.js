@@ -1,6 +1,6 @@
 import { ACTIONS } from "../../constants";
 
-export function creaeUser(user) {
+export function createUser(user) {
     return {
         type: ACTIONS.CREATE_USER,
             user

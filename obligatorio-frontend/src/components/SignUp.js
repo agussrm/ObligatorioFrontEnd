@@ -1,8 +1,7 @@
 import React from "react";
+// eslint-disable-next-line no-unused-vars
 import {BrowserRouter as Router, Redirect} from "react-router-dom";
-import { runInThisContext } from "vm";
 import {signUpUser} from '../Services/Services.js';
-import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 class SignUp extends React.Component {
     constructor(props){
@@ -32,9 +31,13 @@ class SignUp extends React.Component {
            
             signUpUser({name, email, password, confirmPassword})
             .then(result =>  { 
-                                console.log(result)  })
+                sessionStorage.setItem("__id", result._id);
+                this.props.history.push('/Equipo');
+                console.log(result) 
+             })
             .catch(err => {
-                          console.log(err)})
+                sessionStorage.removeItem("_id");
+                console.log(err)})
     }
 
     render(){
@@ -43,8 +46,9 @@ return(
    
     this.state.user ? <Redirect to='/' /> 
     :
-    <div>
-        <form onSubmit={this.onSubmit}>
+    <div className="form">
+    <h2>Sign Up</h2>
+        <form onSubmit={this.onSubmit} className="formcon">
         <div>
             <label htmlFor="name">Nombre</label>
             <input required id="name" name ="name" onChange={this.handleChange} type="text" value={this.state.name}/>
@@ -59,7 +63,7 @@ return(
             <label htmlFor="email">Email</label>
             <input required  type="email" id="email" name="email"onChange={this.handleChange} value={this.state.email}/>  
         </div>  
-        <button>Confirmar</button>
+        <button className="button">Confirmar</button>
         
         </form>
         

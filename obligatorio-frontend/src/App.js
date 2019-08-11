@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Login from './components/Login'
-import About from './components/About'
-import Home from './components/Home'
+import Equipo from './components/Equipo'
 import SignUp from './components/SignUp'
+import Campeonato from './components/Campeonato'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {connect} from 'react-redux'
-import './App.css'
+
 
 
 class App extends Component {
@@ -15,12 +15,9 @@ class App extends Component {
 
     return  (<Router>
       <div>
-        <ul>
+        <ul className="Menu"> 
           <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
+            <Link to="/Equipo">Equipo</Link>
           </li>
           <li>
             <Link to="/login">Login</Link>
@@ -28,14 +25,16 @@ class App extends Component {
           <li>
             <Link to="/SignUp">SignUp</Link>
           </li>
+          <li>
+            <Link to="/Campeonato">Campeonato</Link>
+          </li>
         </ul>
-
         <hr />
 
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
+        <Route path="/Equipo" component={Equipo} />
         <Route path="/login" component={Login} /> 
         <Route path="/SignUp" component={SignUp} /> 
+        <Route path="/Campeonato" component={Campeonato} /> 
       </div>
     </Router>
   );
