@@ -63,6 +63,7 @@ import { getChampionship } from "../Services/Services";
     render(){
 return(
     <div>
+        <button className="button">Confirmar Campeonato</button>
     <div className="tabla">
         <h2>Resultado</h2>
         <table border="1">
@@ -78,17 +79,17 @@ return(
             <td>{}</td>
             </tr>
             <tr>
-            <th>Goles a Favor</th>
-            <td>{}</td>
-            <td>{}</td>
-            </tr>
-            <tr>
-            <th>Goles en Contra</th>
-            <td>{}</td>
-            <td>{}</td>
-            </tr>
-            <tr>
             <th>Diferencia de goles</th>
+            <td>{}</td>
+            <td>{}</td>
+            </tr>
+            <tr>
+            <th>Goles a favor</th>
+            <td>{}</td>
+            <td>{}</td>
+            </tr>
+            <tr>
+            <th>Goles en contra</th>
             <td>{}</td>
             <td>{}</td>
             </tr>

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from './components/Login'
-import Equipo from './components/Equipo'
-import SignUp from './components/SignUp'
-import Campeonato from './components/Campeonato'
+import Login from './components/Login';
+import Equipo from './components/Equipo';
+import SignUp from './components/SignUp';
+import Campeonato from './components/Campeonato';
+import Partido from './components/Partido';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {connect} from 'react-redux'
 
@@ -28,6 +29,9 @@ class App extends Component {
           <li>
             <Link to="/Campeonato">Campeonato</Link>
           </li>
+          <li>
+            <Link to="/Partido">Partido</Link>
+          </li>
         </ul>
         <hr />
 
@@ -35,6 +39,7 @@ class App extends Component {
         <Route path="/login" component={Login} /> 
         <Route path="/SignUp" component={SignUp} /> 
         <Route path="/Campeonato" component={Campeonato} /> 
+        <Route path="/Partido" component={Partido} /> 
       </div>
     </Router>
   );
